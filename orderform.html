@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Order Page - MITA CAKE</title>
+    <style>
+        body, nav, h1, h2, p, navbar { font-family: "Playfair Display", sans-serif; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Playfair Display", Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #008b8b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            height: 90px;
+        }
+        .navbar {
+            background-color:  #20b2aa; 
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #008b8b;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin: 20px 0;
+        }
+        .form-container {
+            max-width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px 40px;
+            border-radius: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #00695c;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[readonly] {
+            background-color: #f5f5f5;
+        }
+        button {
+            background-color: #00695c;
+            color: white;
+            font-size: 16px;
+            cursor: not-allowed;
+        }
+        button:enabled {
+            cursor: pointer;
+        }
+        button:hover:enabled {
+            background-color: #004d40;
+        }
+        .qr-section {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .qr-section img {
+            width: 250px;
+            height: auto;
+        }
+        .qr-section p {
+            font-size: 14px;
+            color: #666;
+        }
+        footer {
+            text-align: center;
+            background-color: #00695c;
+            color: white;
+            padding: 5px 0;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+            .navbar a {
+                margin: 10px 5px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <br /><br />
+    <h1>Delicious Cakes, Just a Click Away</h1>
+</header>
+
+<div class="navbar">
+    <a href="mitahomepage.html">Home</a>
+    <a href="about us.html">About Us</a>
+    <a href="product.html">Product</a>
+    <a href="orderform.html">Order</a>
+    <a href="contactus.html">Contact Us</a>
+</div>
+
+<div class="form-container">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="item">Select Items:</label>
+        <select id="item" name="item" onchange="toggleCustomCakeOptions()" required>
+            <option value="" disabled selected>Select your cake</option>
+            <option value="18.60">Buttermilk Cake</option>
+            <option value="18.60">Buttercheese Cake</option>
+            <option value="8.60">Mini Cake</option>
+            <option value="24.60">Fruit Cake</option>
+            <option value="17.60">Cookies</option>
+            <option value="15.50">Mooncake</option>
+            <option value="8.60">Swiss Roll Cake</option>
+            <option value="6.60">Prune Walnut Cake</option>
+            <option value="3.20">Mocha Layer Cake</option>
+            <option value="19.60">Almond Cheesecake</option>
+            <option value="50.00">Custom Cake</option>
+        </select>
+
+        <div id="CustomCakesOption" style="display: none;">
+            <label for="cakeSize">Cake Size:</label>
+            <select id="cakeSize" name="cakeSize" onchange="calculateAmount()">
+                <option value="small">Small - RM40</option>
+                <option value="medium">Medium - RM60</option>
+                <option value="large">Large - RM80</option>
+            </select>
+
+            <label for="cakeLevel">Cake Level:</label>
+            <select id="cakeLevel" name="cakeLevel" onchange="calculateAmount()">
+                <option value="1">1 Level</option>
+                <option value="2">2 Levels (Add RM10)</option>
+                <option value="3">3 Levels (Add RM20)</option>
+            </select>
+
+            <label for="flavor">Select Flavor:</label>
+            <select id="flavor" name="flavor" onchange="calculateAmount()">
+                <option value="chocolate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="matcha">Matcha</option>
+                <option value="coffee">Coffee</option>
+                <option value="strawberry">Strawberry</option>
+            </select>
+        </div>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" onchange="calculateAmount()" required>
+
+        <label for="specialRequest">Special Request:</label>
+        <select id="specialRequest" name="specialRequest" onchange="toggleDescription()">
+            <option value="none">None</option>
+            <option value="add-icing">Add Icing</option>
+            <option value="add-fruits">Add Fruits</option>
+            <option value="custom-decoration">Custom Decoration</option>
+        </select>
+
+        <div id="customDecorationDescription" style="display: none;">
+            <label for="decorationDescription">Decoration Description:</label>
+            <textarea id="decorationDescription" name="decorationDescription" placeholder="Describe your custom decoration" rows="4" cols="50"></textarea>
+
+            <label for="decorationImage">Upload Decoration Image (Optional):</label>
+            <input type="file" id="decorationImage" name="decorationImage" accept="image/*">
+        </div>
+
+        <div id="fruitOptions" style="display: none;">
+            <label for="fruits">Add Fruits (Optional):</label>
+            <select id="fruits" name="fruits">
+                <option value="none">None</option>
+                <option value="strawberries">Strawberries - RM5</option>
+                <option value="cherries">Cherries - RM3</option>
+                <option value="blueberries">Blueberries - RM4</option>
+                <option value="kiwi">Kiwi - RM6</option>
+                <option value="mango">Mango - RM7</option>
+            </select>
+        </div>
+
+        <label for="amount">Total Amount:</label>
+        <input type="text" id="amount" name="amount" readonly>
+
+        <div class="qr-section">
+            <p>Pay Securely with Bank QR Code. Scan below to make your payment:</p>
+            <img src="payment.png" alt="Mita Cake House QR Code">
+            <p>*Delivery Fee (Already includes in total amount): RM2.00</p>
+            <p>*Please ensure to enter the correct amount and reference when making the payment.</p>
+        </div>
+
+         <label for="receipt">Order Receipt:</label>
+        <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
+
+        <p id="paymentMessage" style="color: green; font-weight: bold; display: none;">
+            Thank you for your payment! Please proceed to submit your order.
+        </p>
+
+        <button type="submit" id="submitButton" disabled>Submit Order</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2025 Mita Cake House | All Rights Reserved</p>
+</footer>
+
+<script>
+    function toggleCustomCakeOptions() {
+    const itemSelect = document.getElementById('item');
+    const customCakeOption = document.getElementById('CustomCakesOption');
+    customCakeOption.style.display = itemSelect.value === "0.00" ? 'block' : 'none';
+    toggleDescription();
+    calculateAmount();
+}
+
+function toggleDescription() {
+    const specialRequest = document.getElementById('specialRequest').value;
+    const fruitSection = document.getElementById('fruitOptions');
+    const descriptionSection = document.getElementById('customDecorationDescription');
+
+    fruitSection.style.display = specialRequest === 'add-fruits' ? 'block' : 'none';
+    descriptionSection.style.display = specialRequest === 'custom-decoration' ? 'block' : 'none';
+}
+
+function calculateAmount() {
+    const itemPrice = parseFloat(document.getElementById('item').value) || 0;
+    const quantity = parseInt(document.getElementById('quantity').value, 10) || 1;
+
+    const sizePrice = {
+        small: 40,
+        medium: 60,
+        large: 80
+    };
+    const levelPrice = {
+        1: 0,
+        2: 10,
+        3: 20
+    };
+    const fruitPrice = {
+        strawberries: 5,
+        cherries: 3,
+        blueberries: 4,
+        kiwi: 6,
+        mango: 6,
+    };
+
+    const deliveryFee = 2.00;
+    const icingFee = 5;
+
+    const selectedSize = document.getElementById('cakeSize') ? document.getElementById('cakeSize').value : null;
+    const selectedLevel = document.getElementById('cakeLevel') ? document.getElementById('cakeLevel').value : null;
+    const selectedFruit = document.getElementById('fruits') ? document.getElementById('fruits').value : 'none';
+    const specialRequest = document.getElementById('specialRequest').value;
+
+    let totalAmount = itemPrice * quantity + deliveryFee;
+
+    if (selectedSize) {
+        totalAmount += sizePrice[selectedSize];
+    }
+
+    if (selectedLevel) {
+        totalAmount += levelPrice[selectedLevel];
+    }
+
+    if (selectedFruit !== 'none') {
+        totalAmount += fruitPrice[selectedFruit];
+    }
+
+    if (specialRequest === 'add-icing') {
+        totalAmount += icingFee;
+    }
+
+    document.getElementById('amount').value = 'RM ' + totalAmount.toFixed(2);
+}
+
+document.getElementById('item').addEventListener('change', toggleCustomCakeOptions);
+document.getElementById('specialRequest').addEventListener('change', toggleDescription);
+document.getElementById('orderForm').addEventListener('input', calculateAmount);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <title>Products - MITA CAKE</title>
+       
+  <style>
+    body,h1,h2,h3,p,a{font-family: "Playfair Display", sans-serif}
+    </style>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #008b8b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #20b2aa;
+      padding: 10px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      margin: 0 15px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background-color: #008b8b;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .container h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #008b8b;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .product {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      color: #008b8b;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    .price-button {
+      display: inline-block;
+      text-decoration: none; /* Remove underline */
+      color: white;
+      background-color: #008b8b;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .price-button:hover {
+      background-color: #20b2aa;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      background-color: #008b8b;
+      color: white;
+      padding: 10px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tasty Treasures</h1>
+    <nav>
+      <a href="mitahomepage.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="product.html">Product</a>
+      <a href="orderform.html">Order</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Signature Treats</h2>
+    <div class="products">
+      <div class="product">
+        <img src="buttermilk.jpg" alt="Buttermilk Mita">
+        <h3>Buttermilk Cake</h3>
+          <p>Known for its moist texture, rich buttery flavor, and irresistible homemade charm, is a must-try treat that has captured hearts everywhere!</p>
+          <br /><br /><br />
+        <a href="orderform.html" class="price-button">RM 18.60</a>
+      </div>
+      <div class="product">
+        <img src="cheesecake.jpg" alt="Butter Cheesecake Mita">
+        <h3>Butter Cheesecake</h3>
+          <p>Creamy richness of butter with the savory, tangy notes of cheese, creating a perfectly balanced, melt-in-your-mouth indulgence.</p>
+        <br /><br /><br />
+        <a href="orderform.html" class="price-button">RM 18.60</a>
+      </div>
+      <div class="product">
+        <img src="almond.jpg" alt="Almond Cheesecake Mita">
+        <h3>Almond Cheesecake</h3>
+          <p>Moist butter cake topped with creamy cheese and garnished with almond slices, offering a delightful blend of buttery sweetness and nutty crunch.</p>
+        <br />
+        <a href="orderform.html" class="price-button">RM 19.60</a>
+      </div>
+      <div class="product">
+        <img src="keklapis.jpg" alt="Kek Lapis Mita">
+        <h3>Kek Lapis</h3>
+          <p>Sarawak layer cakes, are renowned for their vibrant colors, intricate patterns, and diverse flavors, including butter cheese, making them a festive delight for occasions like the New Year.</p>
+        <br />
+        <a href="orderform.html" class="price-button">RM 18.60</a>
+      </div>
+    </div>
+  </div>
+ <div class="container">
+    <h2>Our Sweet Collections</h2>
+    <div class="products">
+      <div class="product">
+        <img src="minicake.jpg" alt="Buttermilk Mita">
+        <h3>Mini Cake</h3>
+          <p>Renowned for their rich, buttery flavor and moist texture, making them a delightful treat for any occasion.</p>
+        <br />
+          <a href="orderform.html" class="price-button">RM 8.60</a>
+      </div>
+    <div class="product">
+        <img src="fruitcake.jpg" alt="Buttermilk Mita">
+        <h3>Fruit Cake</h3>
+        <p>Known as "Kek Buah," is a renowned Sarawak delicacy, celebrated for its rich flavor and popularity among tourists!</p>
+        <br />
+        <a href="orderform.html" class="price-button">RM 24.60</a>
+      </div>
+    <div class="product">
+        <img src="cookies.jpg" alt="Buttermilk Mita">
+        <h3>Cookies (Special Request)</h3>
+        <p>Known for their delightful sweetness and rich buttery flavor, making them a popular choice among customers.</p>
+        <a href="orderform.html" class="price-button">RM 17.60</a>
+      </div>
+    <div class="product">
+        <img src="mooncake.jpg" alt="Buttermilk Mita">
+        <h3>Mooncake (Special Request)</h3>
+        <p>Mooncakes are sweet pastries with a dense filling, often featuring a salted egg yolk center, and have a rich, pasty texture.</p>
+        <a href="orderform.html" class="price-button">RM 15.50</a>
+      </div>
+    <div class="product">
+        <img src="swissroll.jpg" alt="Buttermilk Mita">
+        <h3>Swiss Roll Cake (Special Request)</h3>
+        <p>Their soft, fluffy texture and delightful flavors, such as pandan and chocolate rice, offering a light and satisfying treat.</p>
+        <a href="orderform.html" class="price-button">RM 8.60</a>
+      </div>
+      <div class="product">
+        <img src="prunewalnut.jpg" alt="Butter Cheesecake Mita">
+        <h3>Prune Walnut Cake</h3>
+          <p>Moist texture and rich flavor, combining the natural sweetness of prunes with the earthy crunch of walnuts.</p>
+        <a href="orderform.html" class="price-button">RM 6.60</a>
+      </div>
+      <div class="product">
+        <img src="prunewalnut.jpg" alt="Almond Cheesecake Mita">
+        <h3>Mocha Layer Cake</h3>
+          <p>Rich, velvety coffee flavor paired with a soft, moist texture and a subtle sweetness that perfectly balances the bold mocha taste.</p>
+        <a href="orderform.html" class="price-button">RM 3.20</a>
+      </div>
+      <div class="product">
+        <img src="customcake.jpg" alt="Kek Lapis Mita">
+        <h3>Custom Cake (Special Request)</h3>
+          <br /><br /><br />
+        <a href="orderform.html" class="price-button">RM 50.00</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Mita Cake House | All Rights Reserved.</p>
+  </footer>
+    </form>
+</body>
+</html>

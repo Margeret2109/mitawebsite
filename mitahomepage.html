@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <title>MITA CAKE WEBSITE</title>
+  <style>
+    body, h1, p { font-family: "Playfair Display", sans-serif; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7fa;
+    }
+    header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('27.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    header img {
+      width: 100px;
+      margin-right: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+    header img:hover {
+      transform: scale(1.1);
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #20b2aa;
+      padding: 15px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      margin: 0 20px;
+      padding: 12px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      background-color: #008b8b;
+      color: white;
+      transform: translateY(-5px);
+    }
+    .container {
+      text-align: center;
+      margin: 30px;
+      padding: 30px;
+    }
+    .container h2 {
+      font-size: 2.5em;
+      color: #008b8b;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .container p {
+      font-size: 1.3em;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .news-title {
+      text-align: center;
+      font-size: 2.5em;
+      color: #008b8b;
+      margin-bottom: 50px;
+      margin-top: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Styling for the news section */
+    .news-section-wrapper {
+      width: 100%;
+    }
+
+    .news-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .news-item {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .news-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .news-image-wrapper {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .news-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .news-item:hover .news-image {
+      transform: scale(1.1);
+    }
+
+    .news-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .news-content h3 {
+      font-size: 2em;
+      color: #008b8b;
+      margin-bottom: 15px;
+    }
+
+    .news-content p {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #20b2aa;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="MITA CAKE Logo" style="width: 200px; height: auto;">
+    <div>
+      <br /><br />
+      <h1>Welcome to MITA CAKE WEBSITE</h1>
+      <p>Your Old Time Favourite Borneo</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="mitahomepage.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="product.html">Product</a>
+    <a href="orderform.html">Order</a>
+    <a href="contactus.html">Contact Us</a>
+  </nav>
+
+  <div class="container">
+    <h2>Savor Sweet Perfection</h2>
+    <p>At MITA Cake House, we're all about bringing joy to your taste buds with our delightful cakes! Whether you're celebrating a special occasion or just treating yourself, we’ve got the perfect cake for you. Each bite is a little moment of happiness—baked fresh with love and creativity! 🍰</p>
+  </div>
+
+  <div class="content">
+    <h2 class="news-title">News</h2>
+
+    <!-- Wrapper for News Section -->
+    <div class="news-section-wrapper">
+      <div class="news-section">
+        <!-- News Item 1 -->
+        <div class="news-item">
+          <div class="news-image-wrapper">
+            <img src="meow.jpg" alt="New Favourite: Butter Cake!" class="news-image">
+          </div>
+          <div class="news-content">
+            <h3>New Favourite: Butter Cake!</h3>
+            <p>A decadent, melt-in-your-mouth treat with a golden, buttery crumb that brings a touch of elegance and warmth to every festive occasion. 🎄🍰 </p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-image-wrapper">
+            <img src="news2.jpg" alt="Christmas Specials" class="news-image">
+          </div>
+          <div class="news-content">
+            <h3>Christmas Specials</h3>
+            <p>Celebrate the season with our delicious Christmas specials! From cookies to cakes, we've got everything to make your holiday sweet and magical. 🎅</p>
+          </div>
+        </div>
+
+        <!-- News Item 3 -->
+        <div class="news-item">
+          <div class="news-image-wrapper">
+            <img src="mother.jpg" alt="Sweet Treats for Sweet Moms!" class="news-image">
+          </div>
+          <div class="news-content">
+            <h3>Sweet Treats for Sweet Moms!</h3>
+            <p>Show your appreciation this Mother’s Day with a delicious cake from Mita Cake House. Because moms deserve the sweetest moments! ❤️</p>
+          </div>
+        </div>
+
+        <!-- News Item 4 -->
+        <div class="news-item">
+          <div class="news-image-wrapper">
+            <img src="2025.jpg" alt="Happy New Year" class="news-image">
+          </div>
+          <div class="news-content">
+            <h3>Cheers to a Sweet New Year!</h3>
+            <p>Ring in the New Year with our delightful cakes, crafted to make your celebrations extra special. 🎉</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mita Cake House. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
