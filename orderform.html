@@ -147,7 +147,7 @@
             <option value="18.60">Buttermilk Cake</option>
             <option value="18.60">Buttercheese Cake</option>
             <option value="8.60">Mini Cake</option>
-            <option value="24.60">Fruit Cake</option>
+            <option value="17.80">Fruit Cake</option>
             <option value="17.60">Cookies</option>
             <option value="15.50">Mooncake</option>
             <option value="8.60">Swiss Roll Cake</option>
@@ -209,7 +209,7 @@
                 <option value="cherries">Cherries - RM3</option>
                 <option value="blueberries">Blueberries - RM4</option>
                 <option value="kiwi">Kiwi - RM6</option>
-                <option value="mango">Mango - RM7</option>
+                <option value="mango">Mango - RM3</option>
             </select>
         </div>
 
@@ -242,13 +242,13 @@
     function toggleCustomCakeOptions() {
     const itemSelect = document.getElementById('item');
     const customCakeOption = document.getElementById('CustomCakesOption');
-    customCakeOption.style.display = itemSelect.value === "0.00" ? 'block' : 'none';
+    customCakeOption.style.display = itemSelect.value === "50.00" ? 'block' : 'none';
     toggleDescription();
     calculateAmount();
 }
 
 function toggleDescription() {
-    const specialRequest = document.getElementById('specialRequest');
+    const specialRequest = document.getElementById('specialRequest').value;
     const fruitSection = document.getElementById('fruitOptions');
     const descriptionSection = document.getElementById('customDecorationDescription');
 
@@ -257,9 +257,15 @@ function toggleDescription() {
 }
 
 function calculateAmount() {
+    // Fetch basic input values
     const itemPrice = parseFloat(document.getElementById('item').value) || 0;
-    const quantity = parseInt(document.getElementById('quantity').value, 1) || 1;
+    const quantity = parseInt(document.getElementById('quantity').value, 10) || 1;
 
+    // Fixed fees and optional costs
+    const deliveryFee = 2.00; // Fixed delivery fee
+    const icingFee = 3; // Fee for adding icing
+
+    // Prices for custom cakes
     const sizePrice = {
         small: 40,
         medium: 60,
@@ -275,38 +281,46 @@ function calculateAmount() {
         cherries: 3,
         blueberries: 4,
         kiwi: 6,
-        mango: 6,
+        mango: 3
     };
 
-    const deliveryFee = 2.00;
-    const icingFee = 2;
-
+    // Get selected options
+    const selectedItem = document.getElementById('item').value;
     const selectedSize = document.getElementById('cakeSize') ? document.getElementById('cakeSize').value : null;
     const selectedLevel = document.getElementById('cakeLevel') ? document.getElementById('cakeLevel').value : null;
     const selectedFruit = document.getElementById('fruits') ? document.getElementById('fruits').value : 'none';
     const specialRequest = document.getElementById('specialRequest').value;
 
-    let totalAmount = itemPrice * quantity + deliveryFee;
+    let totalAmount = 0;
 
-    if (selectedSize !== 'none') {
-        totalAmount += sizePrice[selectedSize];
+    // Check if the selected item is a custom cake
+    if (selectedItem === "50.00") {
+        // Calculate for custom cake
+        totalAmount += sizePrice[selectedSize] || 0; // Add size price
+        totalAmount += levelPrice[selectedLevel] || 0; // Add level price
+    } else {
+        // Calculate for regular items
+        totalAmount += itemPrice * quantity; // Multiply base price with quantity
     }
 
-    if (selectedLevel !== 'none') {
-        totalAmount += levelPrice[selectedLevel];
-    }
-
+    // Add fruit price if applicable
     if (selectedFruit !== 'none') {
         totalAmount += fruitPrice[selectedFruit];
     }
 
+    // Add icing fee if selected
     if (specialRequest === 'add-icing') {
         totalAmount += icingFee;
     }
 
+    // Add fixed delivery fee
+    totalAmount += deliveryFee;
+
+    // Display the total amount
     document.getElementById('amount').value = 'RM ' + totalAmount.toFixed(2);
 }
 
+// Event listeners
 document.getElementById('item').addEventListener('change', toggleCustomCakeOptions);
 document.getElementById('specialRequest').addEventListener('change', toggleDescription);
 document.getElementById('orderForm').addEventListener('input', calculateAmount);
