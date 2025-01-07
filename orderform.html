@@ -248,7 +248,7 @@
 }
 
 function toggleDescription() {
-    const specialRequest = document.getElementById('specialRequest').value;
+    const specialRequest = document.getElementById('specialRequest');
     const fruitSection = document.getElementById('fruitOptions');
     const descriptionSection = document.getElementById('customDecorationDescription');
 
@@ -258,7 +258,7 @@ function toggleDescription() {
 
 function calculateAmount() {
     const itemPrice = parseFloat(document.getElementById('item').value) || 0;
-    const quantity = parseInt(document.getElementById('quantity').value, 10) || 1;
+    const quantity = parseInt(document.getElementById('quantity').value, 1) || 1;
 
     const sizePrice = {
         small: 40,
@@ -279,7 +279,7 @@ function calculateAmount() {
     };
 
     const deliveryFee = 2.00;
-    const icingFee = 5;
+    const icingFee = 2;
 
     const selectedSize = document.getElementById('cakeSize') ? document.getElementById('cakeSize').value : null;
     const selectedLevel = document.getElementById('cakeLevel') ? document.getElementById('cakeLevel').value : null;
@@ -288,11 +288,11 @@ function calculateAmount() {
 
     let totalAmount = itemPrice * quantity + deliveryFee;
 
-    if (selectedSize) {
+    if (selectedSize !== 'none') {
         totalAmount += sizePrice[selectedSize];
     }
 
-    if (selectedLevel) {
+    if (selectedLevel !== 'none') {
         totalAmount += levelPrice[selectedLevel];
     }
 
