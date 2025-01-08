@@ -146,7 +146,6 @@
             <option value="" disabled selected>Select your cake</option>
             <option value="18.60">Buttermilk Cake</option>
             <option value="18.60">Buttercheese Cake</option>
-            <option value="17.60">Kek Lapis</option>
             <option value="6.60">Mini Cake</option>
             <option value="17.60">Fruit Cake</option>
             <option value="17.60">Cookies</option>
@@ -325,6 +324,66 @@ function calculateAmount() {
 document.getElementById('item').addEventListener('change', toggleCustomCakeOptions);
 document.getElementById('specialRequest').addEventListener('change', toggleDescription);
 document.getElementById('orderForm').addEventListener('input', calculateAmount);
+    
+    function validateForm() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const item = document.getElementById('item').value;
+    const quantity = document.getElementById('quantity').value;
+    const receipt = document.getElementById('receipt').value;
+
+    // Check for custom cake options if the selected item is a custom cake
+    const isCustomCake = item === "50.00";
+    const customCakeSize = isCustomCake ? document.getElementById('cakeSize').value : true;
+    const customCakeLevel = isCustomCake ? document.getElementById('cakeLevel').value : true;
+
+    // Check if custom decoration requires a description
+    const specialRequest = document.getElementById('specialRequest').value;
+    const decorationDescription = specialRequest === 'custom-decoration' 
+        ? document.getElementById('decorationDescription').value.trim() 
+        : true;
+
+    // Enable button if all required fields are filled
+    const isValid =
+        fullName &&
+        email &&
+        phone &&
+        item &&
+        quantity &&
+        receipt &&
+        customCakeSize &&
+        customCakeLevel &&
+        decorationDescription;
+
+    document.getElementById('submitButton').disabled = !isValid;
+
+}
+
+// Attach event listeners to all inputs for validation
+document.getElementById('orderForm').addEventListener('input', validateForm);
+    
+    document.getElementById('orderForm').addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Display a success message
+    alert("Your order was successfully submitted! Thank you for choosing Mita Cake House.");
+
+    // Optionally, reset the form
+    document.getElementById('orderForm').reset();
+
+    // Reset the calculated amount and disable the submit button again
+    document.getElementById('amount').value = '';
+    document.getElementById('submitButton').disabled = true;
+
+    // Hide custom cake and special request sections
+    document.getElementById('CustomCakesOption').style.display = 'none';
+    document.getElementById('customDecorationDescription').style.display = 'none';
+    document.getElementById('fruitOptions').style.display = 'none';
+});
+
+
 
 </script>
 </body>
